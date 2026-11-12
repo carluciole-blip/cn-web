@@ -43,6 +43,10 @@ export const OFFRES: Record<CodeOffre, Offre> = {
   },
 };
 
+// Formule gratuite : elle ne s'achète pas, donc elle n'est pas dans le catalogue des achats.
+// Jusqu'à 6 invitations, à partager soi-même par lien : la Maison n'envoie aucun e-mail.
+export const PETIT_COMITE = { code: "petit_comite", invitesMax: 6 } as const;
+
 export function offreParCode(code: unknown): Offre | null {
   return typeof code === "string" && Object.hasOwn(OFFRES, code) ? OFFRES[code as CodeOffre] : null;
 }

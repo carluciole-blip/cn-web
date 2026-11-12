@@ -43,15 +43,21 @@ export const fr = {
       },
     ],
     formulesTitre: "Les formules",
-    formulesIntro: "Préparer une invitation et voir son aperçu est gratuit. Le paiement se fait une fois, au moment de l'envoyer.",
+    formulesIntro: "Jusqu'à 6 invités, tout est gratuit. Au-delà, ou pour que la Maison envoie et rappelle à votre place, le paiement se fait une fois, au moment de l'envoi.",
+    gratuit: "Gratuit",
+    sansPaiement: "Sans carte bancaire",
     formules: {
+      petit_comite: {
+        nom: "Petit comité",
+        contenu: ["Jusqu'à 6 invités", "Réponses et mots de vos invités", "Un lien par invité, à partager vous-même"],
+      },
       une_reception: {
         nom: "Une réception",
-        contenu: ["Jusqu'à 30 invités", "Réponses et mots de vos invités", "Export de la liste", "Rappel la veille"],
+        contenu: ["Jusqu'à 30 invités", "Invitations envoyées par e-mail par la Maison", "Rappel la veille", "Export de la liste"],
       },
       grande_reception: {
         nom: "Grande réception",
-        contenu: ["Invités sans limite", "Export de la liste", "Rappel la veille", "Mot de remerciement le lendemain"],
+        contenu: ["Invités sans limite", "Invitations par e-mail et rappel la veille", "Mot de remerciement le lendemain", "Export de la liste"],
       },
       carnet: {
         nom: "Carnet des fêtes",
@@ -84,12 +90,12 @@ export const fr = {
         r: "Oui. Après l'envoi, vous obtenez un lien par personne, à copier dans la messagerie de votre choix, depuis votre propre téléphone. La Maison n'envoie aucun SMS.",
       },
       {
-        q: "Quand dois-je payer ?",
-        r: "Au moment d'envoyer. Préparer l'invitation, choisir un modèle et voir l'aperçu exact ne coûte rien.",
+        q: "Est-ce vraiment gratuit en petit comité ?",
+        r: "Oui. Jusqu'à 6 invités, vous créez l'invitation, partagez vous-même un lien par personne et recevez les réponses, sans carte bancaire. Vous payez seulement pour inviter davantage, ou pour que la Maison envoie les e-mails et le rappel de la veille.",
       },
       {
         q: "Que se passe-t-il si j'invite plus de 30 personnes ?",
-        r: "Rien n'est bloqué pendant la préparation. Au moment de payer, la Grande réception vous est proposée. Si vous ajoutez une 31e personne après l'envoi, vous réglez seulement la différence.",
+        r: "Rien n'est bloqué pendant la préparation. Au moment de l'envoi, la Grande réception vous est proposée. Si vous ajoutez une 31e personne après l'envoi, vous réglez seulement la différence.",
       },
       {
         q: "Utilisez-vous des cookies publicitaires ou des outils de suivi ?",

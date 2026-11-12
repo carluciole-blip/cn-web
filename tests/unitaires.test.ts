@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { OFFRES, offreParCode, prixAffiche } from "@/lib/offres";
+import { OFFRES, PETIT_COMITE, offreParCode, prixAffiche } from "@/lib/offres";
 import { jetonRattachement, lireJetonRattachement } from "@/lib/jetons";
 import { confirmationAchat, echapper } from "@/lib/emails/messages";
 import { fr } from "@/messages/fr";
@@ -22,6 +22,10 @@ describe("catalogue", () => {
     expect(offreParCode("constructor")).toBeNull();
     expect(offreParCode(undefined)).toBeNull();
     expect(offreParCode("carnet")?.code).toBe("carnet");
+  });
+  it("garde la formule gratuite hors des achats, à 6 invités", () => {
+    expect(PETIT_COMITE.invitesMax).toBe(6);
+    expect(offreParCode(PETIT_COMITE.code)).toBeNull();
   });
   it("affiche les prix à la française", () => {
     expect(prixAffiche(2900)).toBe("29 €");

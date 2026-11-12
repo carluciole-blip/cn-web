@@ -115,6 +115,7 @@ export function conditionsDeVente(): PageLegale {
       {
         titre: "Les prix",
         paragraphes: [
+          "Petit comité : gratuit, jusqu'à 6 invités, avec des liens à partager vous-même et sans envoi d'e-mail par la Maison.",
           "Une réception : 9 € TTC. Grande réception : 19 € TTC. Carnet des fêtes : 29 € TTC pour trois Grandes réceptions.",
           maison.mentionTva,
           "Le paiement est unique, par carte, sur la page sécurisée de Stripe. Il n'y a aucun abonnement.",

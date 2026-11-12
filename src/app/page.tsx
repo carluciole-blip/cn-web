@@ -1,6 +1,6 @@
 import { maison } from "@/config/maison";
 import { fr } from "@/messages/fr";
-import { OFFRES, prixAffiche, type CodeOffre } from "@/lib/offres";
+import { OFFRES, PETIT_COMITE, prixAffiche, type CodeOffre } from "@/lib/offres";
 import { Filet } from "@/components/Filet";
 import { Pied } from "@/components/Pied";
 
@@ -67,6 +67,16 @@ export default function Accueil() {
           <Filet />
           <p className="intro">{t.formulesIntro}</p>
           <ul className="formules">
+            <li>
+              <h3>{t.formules[PETIT_COMITE.code].nom}</h3>
+              <p className="prix">{t.gratuit}</p>
+              <p className="etiquette">{t.sansPaiement}</p>
+              <ul>
+                {t.formules[PETIT_COMITE.code].contenu.map((ligne) => (
+                  <li key={ligne}>{ligne}</li>
+                ))}
+              </ul>
+            </li>
             {ordre.map((code) => (
               <li key={code}>
                 <h3>{t.formules[code].nom}</h3>
