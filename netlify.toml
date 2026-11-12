@@ -1,0 +1,8 @@
+# Hébergement Netlify. L'adaptateur Next.js est détecté automatiquement.
+# Les secrets se règlent dans l'interface de Netlify (portée « Functions » comprise), jamais ici.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
