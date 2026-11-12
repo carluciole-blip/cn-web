@@ -23,6 +23,10 @@ npm run lint
 npx tsc --noEmit
 npx next build >/dev/null
 
+if curl -s -o /dev/null "$SITE_URL/"; then
+  echo "Le port $PORT est déjà pris : arrêter l'ancien serveur avant de lancer les tests." >&2
+  exit 1
+fi
 npx next start -p "$PORT" >/dev/null 2>&1 &
 SERVEUR=$!
 trap 'kill $SERVEUR 2>/dev/null || true' EXIT

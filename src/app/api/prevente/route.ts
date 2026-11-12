@@ -3,12 +3,17 @@ import { fr } from "@/messages/fr";
 import { OFFRES } from "@/lib/offres";
 import { stripe } from "@/lib/stripe";
 
+// Response.redirect rend des en-têtes figés, que le serveur ne peut plus compléter : réponse construite à la main.
+function rediriger(adresse: string): Response {
+  return new Response(null, { status: 303, headers: { location: adresse } });
+}
+
 // Prévente du Carnet des fêtes : crée la session Stripe Checkout et y redirige.
 // Le prix vient du catalogue serveur ; le formulaire n'envoie que la case de renoncement.
 export async function POST(requete: Request): Promise<Response> {
   const formulaire = await requete.formData().catch(() => null);
   if (formulaire?.get("renoncement") !== "oui") {
-    return Response.redirect(`${maison.siteUrl}/conditions-de-vente#retractation`, 303);
+    return rediriger(`${maison.siteUrl}/conditions-de-vente#retractation`);
   }
 
   const offre = OFFRES.carnet;
@@ -38,7 +43,7 @@ export async function POST(requete: Request): Promise<Response> {
       cancel_url: `${maison.siteUrl}/#carnet`,
     });
     if (!session.url) throw new Error("session sans adresse");
-    return Response.redirect(session.url, 303);
+    return rediriger(session.url);
   } catch (erreur) {
     console.error("prévente : création de la session impossible,", (erreur as { type?: string }).type ?? "erreur");
     return new Response("Le paiement est momentanément indisponible. Merci de réessayer dans un instant.", {
